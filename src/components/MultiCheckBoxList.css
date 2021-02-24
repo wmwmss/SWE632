@@ -1,0 +1,24 @@
+
+.select .picky__dropdown{
+    outline:1px solid silver;
+}
+.select .picky__filter__input, .select .option, .select .picky__input{
+    padding-left:15px;
+}
+.select .picky__input {
+    border:1;
+    border-width:1px;
+    border-color:lightgrey;
+    border-radius: 4px;
+    /* background-color: lightcyan; */
+}
+.select .picky__dropdown .option input[type='checkbox']{
+    margin-right:10px;
+}
+.select .picky__dropdown .option input[type='radio']{
+    margin-right:10px;
+}
+.maxNum{
+    margin-left:10px;
+    color:orange;
+}

@@ -1,0 +1,22 @@
+span {
+    padding-left: 2px;
+    color:black;
+    font-size:16px;
+    font-weight: 400;
+}
+
+em {
+    color:darkcyan;
+    font-size:16px;
+    font-weight: 600;
+}
+
+.errormsg{
+    display:inline-block;
+    color:red;
+}
+
+Button {
+    width:200px;
+    margin-right:30px;
+}

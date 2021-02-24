@@ -1,0 +1,13 @@
+.navbar-nav .nav-link.active {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline white;
+}
+
+.container-fluid {
+    padding: 0
+}
+
+main {
+    padding: 15px 45px;
+}
