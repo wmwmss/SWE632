@@ -1,6 +1,9 @@
 import beerConsumptionData from '../data/beer_consumption_data.json'
 import stateAbbr from '../data/statesAbbr.json'
 
+/**
+ * @desc Report service
+ */
 class ReportService {
     static getDataByConsumption(year) {
         const stateVals = [];
@@ -34,8 +37,8 @@ class ReportService {
 
         });
 
-        top10.push({ 
-            state: "All Others", 
+        top10.push({
+            state: "All Others",
             data: {
                 y: (total - top10Sum) / total,
                 total: total,
@@ -44,7 +47,7 @@ class ReportService {
         });
 
         top10.forEach((state) => {
-            state.formattedValue = Math.round(state.data/100000) / 10;
+            state.formattedValue = Math.round(state.data / 100000) / 10;
         })
         return {
             states: top10.map((item) => item.state),
@@ -56,8 +59,8 @@ class ReportService {
     static getStates() {
         let states_abbr = Object.keys(beerConsumptionData);
         let states = [];
-        for (var i = 0; i < states_abbr.length;i++)
-            states[i]=stateAbbr[states_abbr[i]];
+        for (var i = 0; i < states_abbr.length; i++)
+            states[i] = stateAbbr[states_abbr[i]];
         return states;
 
     }
@@ -68,8 +71,8 @@ class ReportService {
         return Object.keys(beerConsumptionData[states[0]]);
 
     }
-    
-    static getStateData(state,year){
+
+    static getStateData(state, year) {
         return beerConsumptionData[state][year];
     }
 }

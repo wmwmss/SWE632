@@ -1,3 +1,6 @@
+/**
+ * @desc Pie chart service
+ */
 class PieChartService {
     static getConfig(states, data, chartTitle) {
         return {
@@ -10,8 +13,8 @@ class PieChartService {
             },
             title: {
                 text: chartTitle,
-                style:{
-                    fontSize:'24px'
+                style: {
+                    fontSize: '24px'
                 }
             },
             tooltip: {
@@ -29,8 +32,8 @@ class PieChartService {
                     dataLabels: {
                         enabled: true,
                         format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                        style:{
-                            fontSize:'12px'
+                        style: {
+                            fontSize: '12px'
                         }
                     }
                 }
@@ -51,6 +54,6 @@ class PieChartService {
 
         return series;
     }
- }
+}
 
 export default PieChartService;

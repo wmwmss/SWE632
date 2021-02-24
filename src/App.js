@@ -14,6 +14,9 @@ import About from "./pages/About";
 import "./App.css";
 import Navigation from "./components/Navigation";
 
+/**
+ * @desc main App page with routing and navigation
+ */
 const App = () => {
   return (
     <ReportContextProvider> {/* 1 Report Context Provider */}

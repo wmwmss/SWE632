@@ -1,6 +1,9 @@
 import React from "react";
 import { Jumbotron, Button } from "react-bootstrap";
 
+/**
+ * @desc Home page that has the basic introduction and routing
+ */
 export default function Home() {
   return (
     <Jumbotron>

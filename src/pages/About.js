@@ -1,6 +1,9 @@
 import React from "react";
 import { Jumbotron } from "react-bootstrap";
 
+/**
+ * @desc About page that contains information of the project and the team members
+ */
 export default function About() {
   return (
     <>

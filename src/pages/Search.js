@@ -9,6 +9,10 @@ import "./Search.css"
 import MultiCheckBoxList from '../components/MultiCheckBoxList'
 import { color } from "highcharts";
 
+/**
+ * @desc Search page where users can choose report type and parameters
+ * @param {*} props 
+ */
 const SearchTest = (props) => {
     const [filters, setFilters] = useReportContext();
     let history = useHistory();
@@ -66,7 +70,7 @@ const SearchTest = (props) => {
         updateFilters();
     }
 
-    const updateYears = (values)=>{
+    const updateYears = (values) => {
         years = values;
         console.log(years);
         updateFilters();
@@ -122,13 +126,13 @@ const SearchTest = (props) => {
 
                         <MultiCheckBoxList
                             selectedAll={false}
-                            maxNum={10} 
+                            maxNum={10}
                             selectedList={states}
                             items={ReportService.getStates()}
                             multiple={true}
                             onChange={updateStates}
                             includeFilter={true}
-                            height = {600}
+                            height={600}
                         />
                     </>
                 )}
@@ -137,13 +141,13 @@ const SearchTest = (props) => {
 
                 <MultiCheckBoxList
                     selectedAll={true}
-                    maxNum={1000} 
+                    maxNum={1000}
                     selectedList={years}
                     items={ReportService.getYears()}
                     multiple={!reportType.includes("Pie")}
                     onChange={updateYears}
                     includeFilter={false}
-                    height = {600}
+                    height={600}
                 />
                 {/* {!reportType.includes("Pie") && (<Notes></Notes>)} */}
                 <br></br>

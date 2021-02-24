@@ -2,6 +2,9 @@ import beerConsumptionData from '../data/beer_consumption_data.json'
 import stateAbbr from '../data/statesAbbr.json'
 import censusData from '../data/census_data.json'
 
+/**
+ * @desc Line chart service
+ */
 class LineChartService {
     static getConfig(states, years, reportType) {
         return {
@@ -11,8 +14,8 @@ class LineChartService {
             },
             title: {
                 text: this.getChartTitle(states, years, reportType),
-                style:{
-                    fontSize:'24px'
+                style: {
+                    fontSize: '24px'
                 }
             },
             subtitle: {
@@ -20,30 +23,30 @@ class LineChartService {
             },
             xAxis: {
                 type: 'linear',
-                labels:{
-                    style:{
-                        fontSize:'12px',
-                        color:'black'
+                labels: {
+                    style: {
+                        fontSize: '12px',
+                        color: 'black'
                     }
-                }            
+                }
 
             },
             yAxis: {
                 title: {
                     text: this.getYAxisTitle(reportType),
-                    style:{
-                        fontSize:'18px',
-                        color:'black'
+                    style: {
+                        fontSize: '18px',
+                        color: 'black'
                     }
                 },
-                labels:{
-                    style:{
-                        fontSize:'12px',
-                        color:'black'
+                labels: {
+                    style: {
+                        fontSize: '12px',
+                        color: 'black'
                     }
-                },     
-                type: (reportType === 'ConsumptionPerCapitaLineChart') ? 'linear': 'logarithmic',
-               
+                },
+                type: (reportType === 'ConsumptionPerCapitaLineChart') ? 'linear' : 'logarithmic',
+
             },
             tooltip: this.getTooltip(states),
             plotOptions: {
@@ -84,14 +87,15 @@ class LineChartService {
         //         data: values
         //     });
         // });
-         states.forEach((state) => {
+        states.forEach((state) => {
             let key = Object.keys(stateAbbr).find(key => stateAbbr[key] === state);
             let dataset = beerConsumptionData[key];
             let dataset2 = censusData[key];
             let values = [];
             if (reportType === "ConsumptionPerCapitaLineChart") {
                 years.forEach((year) => {
-                    values.push({x:parseInt(year),
+                    values.push({
+                        x: parseInt(year),
                         y: dataset[year] / dataset2[year],
                         formatted: Math.round(dataset[year] / dataset2[year] * 10) / 10 + " gallons"
                     });
@@ -99,7 +103,8 @@ class LineChartService {
             }
             else {
                 years.forEach((year) => {
-                    values.push({x:parseInt(year),
+                    values.push({
+                        x: parseInt(year),
                         y: dataset[year],
                         formatted: Math.round(dataset[year] / 10000) / 100 + " million gallons"
                     });
@@ -115,13 +120,13 @@ class LineChartService {
     }
 
     static getChartTitle(states, years, reportType) {
-        const string1 = (reportType === "ConsumptionPerCapitaLineChart"? "Beer Consumption Per Capita of " : "Beer Consumption of ");
+        const string1 = (reportType === "ConsumptionPerCapitaLineChart" ? "Beer Consumption Per Capita of " : "Beer Consumption of ");
         if (years.length === 1) {
             if (states.length === 1) {
                 return string1 + states[0] + " in " + years[0];
             }
             else
-                return string1 +  "selected states in " + years[0];
+                return string1 + "selected states in " + years[0];
         }
         else {
             if (states.length === 1)
@@ -159,8 +164,8 @@ class LineChartService {
         return states.length > 1;
     }
 
-    static getYAxisTitle(reportType){
-        return (reportType === "ConsumptionPerCapitaLineChart"? "Personal Beer comsuption (gallons)" : "Total Beer comsuption (gallon)");
+    static getYAxisTitle(reportType) {
+        return (reportType === "ConsumptionPerCapitaLineChart" ? "Personal Beer comsuption (gallons)" : "Total Beer comsuption (gallon)");
     }
 }
 

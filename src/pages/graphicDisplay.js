@@ -4,6 +4,9 @@ import { Button } from "react-bootstrap";
 import { useReportContext } from '../report-context'
 import { useHistory } from "react-router-dom";
 
+/**
+ * @desc function that displays the chart
+ */
 const GraphicDisplay = () => {
     let history = useHistory();
     const goBackSearch = () => {

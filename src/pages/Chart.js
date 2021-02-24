@@ -5,14 +5,18 @@ import PieChartByState from '../components/PieChartByState';
 import ReportService from '../services/ReportService';
 import { PropTypes } from "prop-types";
 
+/**
+ * @desc Chart page to display the results
+ * @param {*} props
+ */
 const Chart = (props) => {
     const states = props.filters.states;
     const years = props.filters.years;
     const reportType = props.filters.reportType;
-     switch (reportType) {
+    switch (reportType) {
         case "TotalConsumptionLineChart":
             return (
-                <LineChartByStateYear states={states} years={years}  reportType={reportType} />
+                <LineChartByStateYear states={states} years={years} reportType={reportType} />
             );
         case "ConsumptionPerCapitaLineChart":
             return (
